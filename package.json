@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "migrations": "npx sequelize-cli model:generate --name Comments --attributes comment_owner:string,comment:string,character_id:integer --force && npx sequelize-cli db:migrate",
+    "start": "npm run migrations && node src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +16,8 @@
     "pg": "^8.9.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.29.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.0"
   }
 }
