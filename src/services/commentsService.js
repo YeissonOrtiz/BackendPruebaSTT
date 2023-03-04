@@ -9,9 +9,18 @@ class CommentsService {
     return newComment
   }
 
-  async findComments(){
-    const [data] = await models.Comment.findAll()
-    console.log(data)
+  async findAllComments(){
+    const { data } = await models.Comment.findAll()
+    return data
+  }
+
+  async findCommentsByCharacter(id){
+    const data = 
+      await models.Comment.findAll({
+        where: {
+          character_id: id
+        }
+      })
     return { data }
   }
 }
